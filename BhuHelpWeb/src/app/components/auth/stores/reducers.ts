@@ -8,18 +8,26 @@ const initialState: AuthStateInterface = {
   validationErrors: null,
 };
 
-const authFeature=createFeature({
-    name:'auth',
-    reducer:createReducer(
-        initialState,
-        on(authActions.login,(state)=>({
-            ...state,
-            isLoading:true,
-            isSubmitting:true,
-            validationErrors:null
-        })),
-        on(authActions.loginSuccess,(state)=>({
-            ...state
-        }))
-    )
-})
+const authFeature = createFeature({
+  name: 'auth',
+  reducer: createReducer(
+    initialState,
+    on(authActions.login, (state) => ({
+      ...state,
+      isLoading: true,
+      isSubmitting: true,
+      validationErrors: null,
+    })),
+    on(authActions.loginSuccess, (state) => ({
+      ...state,
+    }))
+  ),
+});
+
+export const {
+  name: authFeatureKey,
+  reducer: authReducer,
+  selectIsSubmitting,
+  selectIsLoading,
+  selectValidationErrors,
+} = authFeature;
