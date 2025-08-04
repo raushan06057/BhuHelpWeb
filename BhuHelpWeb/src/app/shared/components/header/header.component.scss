@@ -1,0 +1,35 @@
+.app-header {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #3f51b5;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  .logo {
+    height: 36px;
+    margin-left: 10px;
+  }
+
+  .project-name {
+    margin-left: 15px;
+    font-size: 20px;
+    white-space: nowrap;
+  }
+
+  .menu-btn {
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .menu-btn {
+      display: inline-block;
+    }
+  }
+}

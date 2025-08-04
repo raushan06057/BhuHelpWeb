@@ -4,4 +4,5 @@ export interface AuthStateInterface {
   isSubmitting: boolean;
   isLoading: boolean;
   validationErrors: BackendErrorsInterface | null;
+  token:any;
 }

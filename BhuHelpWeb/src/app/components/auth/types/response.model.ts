@@ -1,5 +1,5 @@
-export interface ResponseModel {
+export interface ResponseModel<T> {
   success: boolean;
   message: string;
-  data: object;
+  data: T;
 }

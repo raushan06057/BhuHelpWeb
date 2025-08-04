@@ -1,0 +1,41 @@
+.table-container {
+  padding: 16px;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.search-bar {
+  flex: 1;
+  min-width: 200px;
+}
+
+.full-width-table {
+  width: 100%;
+}
+
+.mat-table-wrapper {
+  overflow: auto;
+}
+.add-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  .add-text {
+    margin-left: 4px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    white-space: nowrap;
+  }
+
+  &:hover .add-text {
+    opacity: 1;
+  }
+}

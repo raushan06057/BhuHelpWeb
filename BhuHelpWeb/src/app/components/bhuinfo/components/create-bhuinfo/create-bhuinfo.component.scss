@@ -1,0 +1,93 @@
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.half-width {
+  flex: 1 1 calc(50% - 8px);
+}
+
+.full-width {
+  width: 100%;
+}
+.top-actions {
+  margin-bottom: 16px;
+}
+mat-form-field.mat-select {
+  width: 100%;
+}
+
+mat-select {
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+mat-select:hover {
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+
+.mat-select-value {
+  color: #333;
+  font-weight: 500;
+}
+
+.mat-select-placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+.mat-select-panel {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.mat-option {
+  padding: 8px 16px;
+  font-size: 14px;
+  color: #333;
+}
+
+.mat-option:hover {
+  background-color: black;
+}
+
+.mat-option.mat-active {
+  background-color: #d0d0d0 !important;
+}
+
+.mat-select-arrow {
+  color: #666;
+}
+
+.mat-select-panel {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Ensure dropdown panel is visible and opaque */
+::ng-deep .mat-select-panel {
+  background-color: #fff !important;
+  opacity: 1 !important;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Fix option transparency */
+::ng-deep .mat-option {
+  background-color: #fff !important;
+  color: #000;
+}
+
+/* Optional: Active or hovered option */
+::ng-deep .mat-option:hover,
+::ng-deep .mat-option.mat-active {
+  background-color: #f0f0f0 !important;
+}
+
+/* Optional: fix overlay background if needed */
+::ng-deep .cdk-overlay-pane {
+  opacity: 1 !important;
+}

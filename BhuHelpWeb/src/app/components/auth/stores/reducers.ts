@@ -6,6 +6,7 @@ const initialState: AuthStateInterface = {
   isSubmitting: false,
   isLoading: false,
   validationErrors: null,
+  token:''
 };
 
 const authFeature = createFeature({
@@ -17,10 +18,19 @@ const authFeature = createFeature({
       isLoading: true,
       isSubmitting: true,
       validationErrors: null,
+      token:''
     })),
     on(authActions.loginSuccess, (state) => ({
       ...state,
-    }))
+    })),
+
+    on(authActions.logout, (state) => ({
+      ...state,
+      isLoading: true,
+      isSubmitting: true,
+      validationErrors: null,
+      token:''
+    })),
   ),
 });
 
