@@ -1,5 +1,5 @@
 export interface BhuInfoModel {
-  id: number;
+  id: number|0;
   name: string;
   dob: string; // ISO string format, use Date if needed: Date;
   age: number;
@@ -19,12 +19,4 @@ export interface BhuInfoModel {
   child: number;
   unmarriedChild: number;
   childInfos: any | null; // Define interface if structure is known
-  createdBy: string;
-  createdOn: string; // ISO string format
-  createdOnUtc: string;
-  modifiedBy: string;
-  modifiedOn: string;
-  modifiedOnUtc: string;
-  isActive: boolean;
-  isDeleted: boolean;
 }

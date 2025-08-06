@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { AuthGuard } from './components/auth/guards/auth-guard';
 
 export const routes: Routes = [
     {
@@ -6,6 +7,7 @@ export const routes: Routes = [
     },
     {
         path:'bhu-info',loadChildren:()=>import('./components/bhuinfo/components/bhuinfo/bhuinfo.routes').then(mod=>mod.routes)
+         ,canActivate: [AuthGuard]
     },
     {
         path:'',

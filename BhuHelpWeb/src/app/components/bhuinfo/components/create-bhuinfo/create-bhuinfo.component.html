@@ -36,7 +36,6 @@
         </mat-select>
       </mat-form-field>
 
-      
       <mat-form-field appearance="outline" class="half-width">
         <mat-label>State</mat-label>
         <mat-select formControlName="stateId" (selectionChange)="onStateChange($event)">
@@ -46,7 +45,7 @@
         </mat-select>
       </mat-form-field>
 
-         <mat-form-field appearance="outline" class="half-width">
+      <mat-form-field appearance="outline" class="half-width">
         <mat-label>District</mat-label>
         <mat-select formControlName="districtId" (selectionChange)="onDistrictChange($event)">
           <mat-option *ngFor="let dist of data.districts" [value]="dist.id">
@@ -55,12 +54,7 @@
         </mat-select>
       </mat-form-field>
 
-      <!-- <mat-form-field appearance="outline" class="half-width">
-        <mat-label>District ID</mat-label>
-        <input matInput type="number" formControlName="districtId" />
-      </mat-form-field> -->
-
-         <mat-form-field appearance="outline" class="half-width">
+      <mat-form-field appearance="outline" class="half-width">
         <mat-label>Post Office</mat-label>
         <mat-select formControlName="postOfficeId">
           <mat-option *ngFor="let postofc of data.postOffices" [value]="postofc.id">
@@ -69,10 +63,6 @@
         </mat-select>
       </mat-form-field>
 
-      <!-- <mat-form-field appearance="outline" class="half-width">
-        <mat-label>Post Office ID</mat-label>
-        <input matInput type="number" formControlName="postOfficeId" />
-      </mat-form-field> -->
       <mat-form-field appearance="outline" class="half-width">
         <mat-label>Address</mat-label>
         <input matInput formControlName="address" />
@@ -81,8 +71,6 @@
         <mat-label>Age</mat-label>
         <input matInput type="number" formControlName="age" />
       </mat-form-field>
-
-
 
       <mat-form-field appearance="outline" class="half-width">
         <mat-label>Profession</mat-label>
@@ -112,21 +100,15 @@
         <input matInput formControlName="mobileNumber" />
       </mat-form-field>
 
-
-
       <mat-form-field appearance="outline" class="half-width">
         <mat-label>Village</mat-label>
         <input matInput formControlName="village" />
       </mat-form-field>
 
-
-
       <mat-form-field appearance="outline" class="half-width">
         <mat-label>Police Station</mat-label>
         <input matInput formControlName="policeStation" />
       </mat-form-field>
-
-
 
       <mat-form-field appearance="outline" class="half-width">
         <mat-label>Child</mat-label>
@@ -139,10 +121,11 @@
       </mat-form-field>
     </div>
 
-
-
     <div class="actions">
-      <button mat-raised-button color="primary" type="submit" [disabled]="bhuInfoForm.invalid">
+      <!-- <button mat-raised-button color="primary" type="submit" [disabled]="bhuInfoForm.invalid">
+        Submit
+      </button> -->
+    <button mat-raised-button color="primary" type="submit">
         Submit
       </button>
     </div>

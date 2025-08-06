@@ -97,10 +97,17 @@ export class CreateBhuinfoComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if (this.bhuInfoForm.valid) {
+
       const formValue: Partial<BhuInfoModel> = {
         ...this.bhuInfoForm.value,
       };
+      debugger;
+    if (this.bhuInfoForm.valid) {
+      const formValue: BhuInfoModel = {
+        ...this.bhuInfoForm.value,
+      };
+      const createBhuInfoRequestModel:BhuInfoModel=formValue;
+      this.store.dispatch(createBhuInfoActions.createBhuInfo({createBhuInfoRequestModel}))
 
       // this.bhuInfoService.create(formValue).subscribe({
       //   next: () => {

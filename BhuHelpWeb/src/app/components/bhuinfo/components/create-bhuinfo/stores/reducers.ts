@@ -8,16 +8,26 @@ const initialState: CreateBhuInfoStateInterface = {
   countries: null,
   states: null,
   districts: null,
-  postOffices:null,
+  postOffices: null,
   gotras: null,
   professionals: null,
   lastNavigation: null,
+  bhuInfoData: null,
 };
 
 const createBhuListFeature = createFeature({
   name: 'crate-bhu-info',
   reducer: createReducer(
     initialState,
+    on(createBhuInfoActions.createBhuInfo, (state) => ({
+      ...state,
+      isLoading: true,
+    })),
+    on(createBhuInfoActions.createBhuInfoSuccess, (state, action) => ({
+      ...state,
+      isLoading: false,
+      bhuInfoData: action.createBhuInfoResponseModel.data,
+    })),
     on(createBhuInfoActions.getCountry, (state) => ({
       ...state,
       isLoading: true,
@@ -60,7 +70,7 @@ const createBhuListFeature = createFeature({
       isLoading: false,
       districts: action.districtResponse,
     })),
-       on(createBhuInfoActions.getPostOffice, (state) => ({
+    on(createBhuInfoActions.getPostOffice, (state) => ({
       ...state,
       isLoading: true,
     })),
@@ -81,4 +91,5 @@ export const {
   selectPostOffices,
   selectGotras,
   selectProfessionals,
+  selectBhuInfoData
 } = createBhuListFeature;

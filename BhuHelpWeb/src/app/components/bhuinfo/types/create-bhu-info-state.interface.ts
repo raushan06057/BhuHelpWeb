@@ -1,3 +1,4 @@
+import { BhuInfoModel } from './bhu-info.model';
 import { CountryModel } from './country.model';
 import { DistrictModel } from './district.model';
 import { GetStateResponseInterface } from './get-state.response';
@@ -11,8 +12,9 @@ export interface CreateBhuInfoStateInterface {
   countries: CountryModel[] | null;
   states: GetStateResponseInterface[] | null;
   districts: DistrictModel[] | null;
-  postOffices:PostOfficeModel[]|null;
+  postOffices: PostOfficeModel[] | null;
   gotras: GotraModel[] | null;
   professionals: ProfessionalModel[] | null;
   lastNavigation: string | null;
+  bhuInfoData: BhuInfoModel | null;
 }

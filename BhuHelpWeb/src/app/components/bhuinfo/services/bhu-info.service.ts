@@ -14,11 +14,13 @@ import { GetDistrictRequestInterface } from '../types/get-district-request.inter
 import { DistrictModel } from '../types/district.model';
 import { GetPostOfficeRequestInterface } from '../types/get-postoffice-request.interface';
 import { PostOfficeModel } from '../types/post-office.model';
+import { BhuInfoModel } from '../types/bhu-info.model';
 @Injectable({
   providedIn: 'any',
 })
 export class BhuInfoService {
   private http = inject(HttpClient);
+
   get(searchBhuListRequest: SearchBhuInfoListInterface) {
     let params = new HttpParams()
       .set('page', searchBhuListRequest.page)
@@ -34,7 +36,12 @@ export class BhuInfoService {
       )
       .pipe(map((resp) => resp.data));
   }
-
+create(bhuInfo: Partial<BhuInfoModel>): Observable<ResponseModel<any>> {
+    return this.http.post<ResponseModel<any>>(
+      `${CommonFields.baseAPIUrl}${CommonFields.bhuInfosUrl}`,
+      bhuInfo
+    );
+  }
   getCountry(): Observable<CountryModel[]> {
     var result = this.http
       .get<ResponseModel<CountryModel[]>>(

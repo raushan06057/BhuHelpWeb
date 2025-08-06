@@ -15,10 +15,10 @@ export const createBhuInfoActions = createActionGroup({
   source: 'create-bhu-info',
   events: {
     CreateBhuInfo: props<{ createBhuInfoRequestModel: BhuInfoModel }>(),
-    'create-bhu-info success': props<{
+    'CreateBhuInfo success': props<{
       createBhuInfoResponseModel: ResponseModel<BhuInfoModel>;
     }>(),
-    'create-bhu-info failure': emptyProps(),
+    'CreateBhuInfo failure': emptyProps(),
     GetCountry: emptyProps(),
     'Get country success': props<{
       countriesResponse: CountryModel[];
