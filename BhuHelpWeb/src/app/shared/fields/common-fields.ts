@@ -5,5 +5,7 @@ export const CommonFields={
     countriesUrl:'Countries',
     professionalsUrl:'Professionals',
     gotrasUrl:'Gotras',
-    statesUrl:'States/'
+    statesUrl:'States/',
+    districtsUrl:'Districts/',
+    PostOfficesUrl:'PostOffices/'
 }

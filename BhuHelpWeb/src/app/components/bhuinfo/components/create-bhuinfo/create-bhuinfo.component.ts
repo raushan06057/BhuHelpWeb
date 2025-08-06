@@ -22,12 +22,16 @@ import { combineLatest } from 'rxjs';
 import { Store } from '@ngrx/store';
 import {
   selectCountries,
+  selectDistricts,
   selectGotras,
+  selectPostOffices,
   selectProfessionals,
   selectStates,
 } from './stores/reducers';
 import { createBhuInfoActions } from './stores/actions';
 import { GetStateRequestInterface } from '../../types/get-state-request.interface';
+import { GetDistrictRequestInterface } from '../../types/get-district-request.interface';
+import { GetPostOfficeRequestInterface } from '../../types/get-postoffice-request.interface';
 
 @Component({
   selector: 'app-create-bhuinfo',
@@ -58,6 +62,8 @@ export class CreateBhuinfoComponent implements OnInit {
     gotras: this.store.select(selectGotras),
     professionals: this.store.select(selectProfessionals),
     states: this.store.select(selectStates),
+    districts: this.store.select(selectDistricts),
+    postOffices:this.store.select(selectPostOffices)
   });
 
   ngOnInit(): void {
@@ -120,18 +126,22 @@ export class CreateBhuinfoComponent implements OnInit {
     this.store.dispatch(
       createBhuInfoActions.getState({ getStateRequestInterface })
     );
-    // Optional: Dispatch an action or fetch states by country ID
-    // this.store.dispatch(createBhuInfoActions.getState({ getStateRequestInterface: { countryId: selectedCountryId } }));
   }
 
   onStateChange(event: MatSelectChange): void {
     const selectedStateId = event.value;
-    // const getStateRequestInterface: GetStateRequestInterface = {
-    //   stateId: selectedStateId,
-    // };
-    // console.log('Selected Country ID:', selectedCountryId);
-    // this.store.dispatch(
-    //   createBhuInfoActions.getState({ getStateRequestInterface })
-    // );
+    const getDistrictRequestInterface: GetDistrictRequestInterface = {
+      stateId: selectedStateId,
+    };
+    this.store.dispatch(
+      createBhuInfoActions.getDistrict({ getDistrictRequestInterface })
+    );
+  }
+  onDistrictChange(event: MatSelectChange): void {
+    const selectedDistrictId = event.value;
+    const getPostOfficeRequestInterface: GetPostOfficeRequestInterface={
+      districtId:selectedDistrictId
+    }
+    this.store.dispatch(createBhuInfoActions.getPostOffice({getPostOfficeRequestInterface}));
   }
 }

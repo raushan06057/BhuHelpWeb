@@ -6,7 +6,9 @@ const initialState: CreateBhuInfoStateInterface = {
   isLoading: false,
   error: null,
   countries: null,
-  states:null,
+  states: null,
+  districts: null,
+  postOffices:null,
   gotras: null,
   professionals: null,
   lastNavigation: null,
@@ -40,13 +42,32 @@ const createBhuListFeature = createFeature({
       ...state,
       professionals: action.professionalsResponse,
     })),
-        on(createBhuInfoActions.getState, (state) => ({
+    on(createBhuInfoActions.getState, (state) => ({
       ...state,
       isLoading: true,
     })),
     on(createBhuInfoActions.getStateSuccess, (state, action) => ({
       ...state,
-      statesResponse: action.statesResponse,
+      states: action.statesResponse,
+      isLoading: false,
+    })),
+    on(createBhuInfoActions.getDistrict, (state) => ({
+      ...state,
+      isLoading: true,
+    })),
+    on(createBhuInfoActions.getDistrictSuccess, (state, action) => ({
+      ...state,
+      isLoading: false,
+      districts: action.districtResponse,
+    })),
+       on(createBhuInfoActions.getPostOffice, (state) => ({
+      ...state,
+      isLoading: true,
+    })),
+    on(createBhuInfoActions.getPostOfficeSuccess, (state, action) => ({
+      ...state,
+      isLoading: false,
+      postOffices: action.postOfficeResponse,
     }))
   ),
 });
@@ -55,7 +76,9 @@ export const {
   reducer: createBhuInfoFeatureReducer,
   selectIsLoading,
   selectCountries,
+  selectStates,
+  selectDistricts,
+  selectPostOffices,
   selectGotras,
   selectProfessionals,
-  selectStates
 } = createBhuListFeature;

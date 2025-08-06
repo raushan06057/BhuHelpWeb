@@ -10,6 +10,10 @@ import { GotraModel } from '../types/gotra.model';
 import { ProfessionalModel } from '../types/professional.model';
 import { GetStateRequestInterface } from '../types/get-state-request.interface';
 import { GetStateResponseInterface } from '../types/get-state.response';
+import { GetDistrictRequestInterface } from '../types/get-district-request.interface';
+import { DistrictModel } from '../types/district.model';
+import { GetPostOfficeRequestInterface } from '../types/get-postoffice-request.interface';
+import { PostOfficeModel } from '../types/post-office.model';
 @Injectable({
   providedIn: 'any',
 })
@@ -58,10 +62,34 @@ export class BhuInfoService {
     return result;
   }
 
-    getStatesByCountryId(request:GetStateRequestInterface): Observable<GetStateResponseInterface[]> {
+  getStatesByCountryId(
+    request: GetStateRequestInterface
+  ): Observable<GetStateResponseInterface[]> {
     var result = this.http
       .get<ResponseModel<GetStateResponseInterface[]>>(
         `${CommonFields.baseAPIUrl}${CommonFields.statesUrl}${request.countryId}`
+      )
+      .pipe(map((response) => response.data));
+    return result;
+  }
+
+  getDistrictsByStateId(
+    request: GetDistrictRequestInterface
+  ): Observable<DistrictModel[]> {
+    var result = this.http
+      .get<ResponseModel<DistrictModel[]>>(
+        `${CommonFields.baseAPIUrl}${CommonFields.districtsUrl}${request.stateId}`
+      )
+      .pipe(map((response) => response.data));
+    return result;
+  }
+
+    getPostOfficesByDistrictId(
+    request: GetPostOfficeRequestInterface
+  ): Observable<PostOfficeModel[]> {
+    var result = this.http
+      .get<ResponseModel<PostOfficeModel[]>>(
+        `${CommonFields.baseAPIUrl}${CommonFields.PostOfficesUrl}${request.districtId}`
       )
       .pipe(map((response) => response.data));
     return result;
